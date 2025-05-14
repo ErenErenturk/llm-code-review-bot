@@ -1,5 +1,8 @@
 import argparse
 from reviewers.python_reviewer import review_python_code
+from colorama import init, Fore, Style
+
+init(autoreset=True)
 
 def main():
     parser = argparse.ArgumentParser(description="Review a Python file using LLM")
@@ -20,7 +23,7 @@ def main():
         print("-" * 80)
         print(fn.strip())
         print("\n💬 Review:")
-        print(review.strip())
+        print(Style.BRIGHT + Fore.BLUE + review.strip())
         print("=" * 80)
 
 if __name__ == "__main__":
