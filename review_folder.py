@@ -15,9 +15,21 @@ def find_python_files(folder):
                 py_files.append(os.path.join(root, file))
     return py_files
 
+def save_review(filename, reviews):
+    os.makedirs("reviews", exist_ok=True)
+    out_path = os.path.join("reviews", os.path.basename(filename).replace(".py", ".md"))
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(f"# Review for `{filename}`\n\n")
+        for i, (fn, review) in enumerate(reviews, 1):
+            f.write(f"## Function #{i}\n\n")
+            f.write("```python\n" + fn.strip() + "\n```\n")
+            f.write(f"**💬 Review:**\n\n{review.strip()}\n\n---\n")
+    console.print(f"[green]💾 Saved review to {out_path}[/]")
+
 def main():
     parser = argparse.ArgumentParser(description="Review all Python files in a folder using LLM")
     parser.add_argument("folder_path", help="Path to the folder")
+    parser.add_argument("--save", action="store_true", help="Save each review to markdown")
     args = parser.parse_args()
 
     files = find_python_files(args.folder_path)
@@ -39,6 +51,9 @@ def main():
             console.print("\n💬 [bold blue]Review:[/]")
             console.print(Text(review.strip(), style="bold blue"))
             console.print("=" * 80)
+
+        if args.save and reviews:
+            save_review(filepath, reviews)
 
 if __name__ == "__main__":
     main()
