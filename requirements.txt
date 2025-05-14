@@ -1,0 +1,3 @@
+gitpython
+tree_sitter
+requests
