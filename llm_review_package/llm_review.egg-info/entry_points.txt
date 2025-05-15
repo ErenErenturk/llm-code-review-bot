@@ -1,0 +1,2 @@
+[console_scripts]
+llm-review = llm_review_package.llm_review.cli:main

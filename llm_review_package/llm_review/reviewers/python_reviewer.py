@@ -1,5 +1,5 @@
-from analyzer import extract_functions
-from llm_interface import ask_llm
+from llm_review_package.llm_review.analyzer import extract_functions
+from llm_review_package.llm_review.llm_interface import ask_llm
 
 def review_python_code(code):
     functions = extract_functions(code)

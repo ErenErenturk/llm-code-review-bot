@@ -3,59 +3,77 @@
 A lightweight, fully local code reviewer powered by [Ollama](https://ollama.com) and Qwen/Mistral.  
 It parses your Python files, extracts functions, and uses an LLM to suggest improvements — just like a real dev reviewer.
 
+![PyPI](https://img.shields.io/pypi/v/llm-review)
+![License](https://img.shields.io/pypi/l/llm-review)
+![Downloads](https://img.shields.io/pypi/dm/llm-review)
+
+---
+
 ## ✨ Features
 - Extracts Python functions using regex (no AST or tree-sitter required)
 - Sends each function to a local LLM (via Ollama) for review
 - CLI-based — no frontend required
-- Outputs reviews in your terminal
+- Outputs reviews in your terminal with color formatting
+- Supports `--save` to export results as Markdown
 - Completely offline — free & private
+
+---
 
 ## 🚀 Quickstart
 
-### 1. Install Ollama and run the model
+### 1. Install Ollama and run a model
 ```bash
 ollama run qwen:7b-chat
 ```
 
-### 2. Clone and install requirements
+### 2. Install the CLI tool
 ```bash
-git clone https://github.com/ErenErenturk/llm-code-review-bot.git
-cd llm-code-review-bot
-python -m venv .venv && .venv\Scripts\activate
-pip install -r requirements.txt
+pip install llm-review
 ```
 
-### 3. Run the review tool
+### 3. Run the review
 ```bash
-python review.py path/to/your_script.py
+llm-review path/to/your_folder --save
 ```
 
-You'll see something like:
+Markdown files will be saved to `./reviews`.
+
+---
+
+## 📦 Example Output
+
+```bash
+📂 Reviewing: myfile.py
+🔍 Function #1
+💬 Review:
+Consider improving error handling and adding a docstring.
 ```
-[debug] Extracted 3 functions
-[debug] LLM response: "This function could benefit from more error handling..."
-```
+
+---
 
 ## 🛠 Tech Stack
 
-- 🧠 Qwen via [Ollama](https://ollama.com)
+- 🧠 Local LLMs via [Ollama](https://ollama.com)
 - 🐍 Python 3.10+
-- 🧪 Regex-based function extraction
-- 📦 No external APIs
+- 🎨 [Rich](https://github.com/Textualize/rich) for CLI formatting
+- ✍️ Markdown output
 
 ---
 
-## 📌 Future Plans
-- Batch review folders
-- GitHub PR comments
-- Save review results to Markdown or HTML
+## 📌 Roadmap
+
+- [x] Batch folder review
+- [x] Markdown export
+- [ ] GitHub PR bot integration
+- [ ] HTML output
+- [ ] Model selection via `--model` flag
 
 ---
 
-## 🧠 Example Output
+## 🤝 Contributing
 
-> 💬 “Consider adding a docstring and improving exception handling for this function.”
+Pull requests, issues, and feature ideas are welcome!
 
 ---
 
-Contributions welcome — feedback, PRs, and ideas are all appreciated!
+> Made with ❤️ by [@ErenErenturk](https://github.com/ErenErenturk)

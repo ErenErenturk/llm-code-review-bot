@@ -1,0 +1,23 @@
+[project]
+name = "llm-review"
+version = "1.0.1"
+description = "A local LLM-powered code review CLI tool"
+authors = [{ name = "Eren Erenturk", email = "erenx2turk@gmail.com" }]
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "requests",
+    "rich",
+    "colorama"
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+llm-review = "llm_review_package.llm_review.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["llm_review_package"]

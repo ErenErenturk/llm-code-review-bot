@@ -1,5 +1,6 @@
 import argparse
-from reviewers.python_reviewer import review_python_code
+from llm_review_package.llm_review.reviewers.python_reviewer import review_python_code
+
 from colorama import init, Fore, Style
 
 init(autoreset=True)
