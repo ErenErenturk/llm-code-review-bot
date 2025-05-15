@@ -3,6 +3,8 @@
 A lightweight, fully local code reviewer powered by [Ollama](https://ollama.com) and Qwen/Mistral.  
 It parses your Python files, extracts functions, and uses an LLM to suggest improvements — just like a real dev reviewer.
 
+📦 **Install from PyPI**: [https://pypi.org/project/llm-review](https://pypi.org/project/llm-review)
+
 ![PyPI](https://img.shields.io/pypi/v/llm-review)
 ![License](https://img.shields.io/pypi/l/llm-review)
 ![Downloads](https://img.shields.io/pypi/dm/llm-review)
@@ -76,4 +78,4 @@ Pull requests, issues, and feature ideas are welcome!
 
 ---
 
-> Made with ❤️ by [@ErenErenturk](https://github.com/ErenErenturk)
+> Made by [@ErenErenturk](https://github.com/ErenErenturk)
